@@ -6,7 +6,20 @@
     <link href="styles.css" rel="stylesheet">
   </head>
   <body>
-  <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script>
 
+      var svg = d3.select("body")
+        .append("svg")
+        .append("g")
+
+      svg.append("g")
+        .attr("class", "slices");
+      svg.append("g")
+        .attr("class", "labels");
+      svg.append("g")
+        .attr("class", "lines");
+        
+    </script>
   </body>
 </html>
