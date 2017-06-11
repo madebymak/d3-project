@@ -19,7 +19,33 @@
         .attr("class", "labels");
       svg.append("g")
         .attr("class", "lines");
-        
+
+      var width = 960;
+      var height = 450;
+      var radius = Math.min(width, height)/2
+
+      var pie = d3.layout.pie()
+        .sort(null)
+        .value(function(d) {
+          return d.value
+        });
+
+      var arc = d3.svg.arc()
+        .outerRadius(radius * 0.8)
+        .innerRadius(radius * 0.4);
+
+      svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+      var key = function (d) {
+        return d.data.label;
+      }
+
+      var color = d3.scale.ordinal()
+        .domain(["red", "blue", "yellow", "green"])
+        .range(["red", "blue", "yellow", "green"]);
+
+
+
     </script>
   </body>
 </html>
