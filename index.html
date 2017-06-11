@@ -46,8 +46,8 @@
       }
 
       var color = d3.scale.ordinal()
-        .domain(["red", "blue", "yellow", "green"])
-        .range(["red", "blue", "yellow", "green"]);
+        .domain(["red", "blue", "yellow", "green", "orange"])
+        .range(["#ff1600", "#006aff","#eaff00", "#00ff95", "#FF9500"]);
 
       function randomData() {
         var labels = color.domain();
