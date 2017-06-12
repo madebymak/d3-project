@@ -83,6 +83,7 @@
           .attrTween("d", function(d) {
             this._current = this._current || d;
             var interpolate = d3.interpolate(this._current, d);
+            this._current = interpolate(0);
             return function(t) {
               return arc(interpolate(t));
             };
@@ -132,7 +133,6 @@
         .remove();
 
         // Slices to text
-
         var polyline = svg.select(".lines").selectAll("polyline")
           .data(pie(data), key);
 
@@ -143,6 +143,7 @@
           .attrTween("points", function(d) {
             this._current = this._current || d;
             var interpolate = d3.interpolate(this._current, d);
+            this._current = interpolate(0);
             return function(t) {
               var d2 = interpolate(t);
               var pos = outerArc.centroid(d2);
