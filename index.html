@@ -4,15 +4,42 @@
     <meta charset="utf-8">
     <title>D3.js Project</title>
     <link href="styles.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
   <body>
-    <button class="randomize">Random</button>
+
+    <div class="container brd">
+      <div class="row">
+        <div class="brd">
+          <div id="container" class="svg-container brd">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="button brd">
+          <button class="randomize">Random</button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script>
 
-      var svg = d3.select("body")
-        .append("svg")
-        .append("g")
+    var svg = d3.select("#container")
+  .append("svg")
+  .attr("preserveAspectRatio", "xMinYMin meet")
+  .attr("viewBox", "0 0 800 400")
+  .classed("svg-content", true)
+  .append("g")
+
+      // var svg = d3.select("#pie")
+      //   .append("svg")
+      //   .append("g")
 
       svg.append("g")
         .attr("class", "slices");
@@ -21,9 +48,9 @@
       svg.append("g")
         .attr("class", "lines");
 
-      var width = 960;
-      var height = 600;
-      var radius = Math.min(width, height) / 2
+      var width = 800;
+      var height = 400;
+      var radius = Math.min(width, height) / 2;
 
       var pie = d3.layout.pie()
         .sort(null)
